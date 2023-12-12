@@ -59,6 +59,7 @@ function Cart() {
                 confirmButtonText: 'ok'
             })
             setIsLoading(false);
+            
             //console.log('coupon',res)
         } catch (error) {
             console.log(error.response.data.message);
