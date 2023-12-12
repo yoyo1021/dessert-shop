@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import Loading from "../../components/Loading";
+import Swal from 'sweetalert2';
 
 function Cart() {
 
@@ -51,10 +52,22 @@ function Cart() {
             setIsLoading(true);
             const res = await axios.post(`/v2/api/${process.env.REACT_APP_API_PATH}/coupon`,data);
             getCart();
+            Swal.fire({
+                title: '使用成功!',
+                text: `${res.data.message}`,
+                icon: 'success',
+                confirmButtonText: 'ok'
+            })
             setIsLoading(false);
             //console.log('coupon',res)
         } catch (error) {
             console.log(error.response.data.message);
+            Swal.fire({
+                title: '使用失敗!',
+                text: `${error.response.data.message}`,
+                icon: 'warning',
+                confirmButtonText: 'ok'
+            })
             setIsLoading(false);
         }
         
