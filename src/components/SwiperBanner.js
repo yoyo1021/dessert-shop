@@ -6,6 +6,7 @@ import { Autoplay, Navigation, Pagination} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import '../style/helpers/_swiperBanner.scss'
 
 
 function SwiperBanner({bannerImg}){
@@ -25,7 +26,7 @@ function SwiperBanner({bannerImg}){
             {bannerImg.map((i)=>{
                 return(
                     <SwiperSlide key={i.id}>
-                        <img className='object-cover w-100 ' style={{height:'700px'}} src={i.image} alt="全新開幕" />
+                        <img className='object-cover w-100' style={{height:'600px'}} src={i.image} alt="全新開幕" />
                     </SwiperSlide>
                 )
             })}
