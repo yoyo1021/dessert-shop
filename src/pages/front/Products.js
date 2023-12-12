@@ -71,14 +71,13 @@ function Products() {
             <div className="container mt-md-5 mt-3 mb-7 full-height">
                 <Loading isLoading={isLoading} />
                 <div className="row">
-                    <div className="col-lg-2">
-                        <h4 className="d-none d-lg-flex">產品類型</h4>
-
+                    <div className="col-lg-2 mb-4">
+                        <h4 className="d-none d-lg-flex justify-content-center">產品類型</h4>
                         <ul className="list-group d-lg-block" style={{ flexFlow: 'row wrap' }}>
                             {categories.map((category, i) => {
                                 return (
                                     <li className="list-group-item border-0 " key={i}>
-                                        <button className={`btn w-100 rounded ${currentCategory === category ? 'btn-primary' : ''}`} onClick={(e) => {
+                                        <button className={`btn w-100 text-start rounded ${currentCategory === category ? 'btn-primary' : ''}`} onClick={(e) => {
                                             setCurrentCategory(category)
                                             getProducts(category, 1)
                                         }}>{category}</button>
@@ -93,7 +92,7 @@ function Products() {
                         <div className="row">
                             {products.map((product) => {
                                 return (
-                                    <div className="col-md-6 col-lg-4 col-xl-3 px-4" key={product.id}>
+                                    <div className="col-md-6 col-lg-4 px-4" key={product.id}>
                                         <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }} className="card  mb-4 border-0">
                                             <div className="img-wrapper position-relative">
                                                 <img src={product.imageUrl} className="card-img-top  object-cover " height='250px' alt="..." />
