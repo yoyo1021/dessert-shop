@@ -1,0 +1,11 @@
+// $body-color:pink;
+
+// .App-header{
+//     background-color: $body-color;
+// }
+@import "bootstrap/scss/functions";
+@import './variables';
+@import "bootstrap/scss/bootstrap";
+
+@import "./utilities";
+@import "./helpers/productCard"

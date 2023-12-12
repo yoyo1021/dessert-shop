@@ -1,0 +1,22 @@
+.object-cover{
+    object-fit: cover;
+}
+
+.full-height{
+    min-height: calc(100vh - 132px) ;
+}
+
+.loading{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right:0;
+    left: 0;
+    background-color:black;
+    opacity: 0.5;
+    z-index: 100000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}

@@ -1,0 +1,21 @@
+.card{
+    .img-wrapper{
+        background-color: black;
+        img{
+            transition: all .3s ease-in;
+        }
+    }
+    .detail-icon{
+        opacity: 0;
+    }
+}
+.card:hover{
+    .img-wrapper{
+        img {
+            opacity: 0.5;
+        }
+    }
+    .detail-icon{
+        opacity: 1;
+    }
+}
