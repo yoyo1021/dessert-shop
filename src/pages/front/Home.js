@@ -1,6 +1,17 @@
+import SwiperBanner from "../../components/SwiperBanner";
+
+
+const bannerImg=[
+    {
+        id: 1,
+            image: 'https://images.unsplash.com/photo-1505285360-458ff677f029?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    }
+]
+
 function Home() {
     return (
         <>
+            <SwiperBanner bannerImg={bannerImg}></SwiperBanner>
             <div className="container">
                 <div className="row flex-md-row-reverse flex-column">
                     <div className="col-md-6">
