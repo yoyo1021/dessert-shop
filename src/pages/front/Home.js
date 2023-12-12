@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SwiperBanner from "../../components/SwiperBanner";
 import axios from 'axios';
-import { Link, useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -29,8 +29,10 @@ function Home() {
 
     ]
 
-    const [classic, setClassic] = useState([])
-    const [season, setSeason] = useState([])
+    const [classic, setClassic] = useState([]);
+    const [season, setSeason] = useState([]);
+    const [iscopy,setIsCopy] = useState(false);
+    const copyRef = useRef(null);
 
     const getDesserts = async () => {
         const res = await axios.get(`/v2/api/${process.env.REACT_APP_API_PATH}/products?category=甜點&page=1`);
@@ -42,6 +44,14 @@ function Home() {
         setSeason(res.data.products.slice(0, 4))
     }
 
+    const copyCoupon = ()=>{
+        console.log(copyRef.current.innerText)
+        setIsCopy(true);
+        setTimeout(()=>{
+            setIsCopy(false);
+        },2000)
+    }
+
     useEffect(() => {
         getDesserts();
         getSeasonDesserts();
@@ -49,29 +59,33 @@ function Home() {
     return (
         <>
             <SwiperBanner bannerImg={bannerImg}></SwiperBanner>
-            <div className="container"> 
-                <section className="pt-5">
-                    <div className="row">
-                        <div className="col-md-6">
-                            <h4 className="text-center fw-bold border-bottom mb-4">歡慶開幕</h4>
-                            <h4>開幕優惠，即日起輸入優惠碼 【DESERT8】 享全館商品打8折</h4>
+
+            <section className="py-5">
+                <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-md-6 mb-3">
+                            <h4 className="text-center fw-bold border-bottom mb-4 pb-3">歡慶開幕</h4>
+                            <h4 className="text-center text-md-start">開幕優惠，即日起輸入優惠碼 【DESERT8】 享全館商品打8折</h4>
                         </div>
                         <div className="col-md-6 ">
-                            <div className="row">
-                                <div className="col">
-                                    <div className="border p-3">優惠碼 【DESERT8】</div>
+                            <div className="row align-items-center ">
+                                <div className="col-md-6 mb-3">
+                                    <div className="border p-3 text-center ">優惠碼 【<span ref={copyRef}>DESERT8</span>】</div>
                                 </div>
-                                <div className="col">
-                                    <button type="button" className="btn btn-primary ">複製優惠碼</button>
+                                <div className="col-md-6 d-flex justify-content-center d-md-block">
+                                    <button type="button" className={`btn btn-primary ${iscopy?'disabled':''}`} onClick={()=>copyCoupon()}>{iscopy?"複製成功":"複製優惠碼"}</button>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
-                    
-                </section>
-                <section className="pt-5 " >
-                    <h4 className="text-center fw-bold border-bottom mb-4">經典甜點</h4>
+                </div>
+
+
+            </section>
+            <section className="py-5 bg-light">
+                <div className="container">
+                    <h4 className="text-center fw-bold border-bottom mb-4 pb-3">經典甜點</h4>
                     <div className="row">
                         {classic.map((i) => {
                             return (
@@ -104,9 +118,12 @@ function Home() {
                             )
                         })}
                     </div>
-                </section>
-                <section className="pt-5 " >
-                    <h4 className="text-center fw-bold  border-bottom mb-4">季節限定</h4>
+                </div>
+
+            </section>
+            <section className="py-5 " >
+                <div className="container">
+                    <h4 className="text-center fw-bold  border-bottom mb-4 pb-3">季節限定</h4>
                     <div className="row">
                         {season.map((i) => {
                             return (
@@ -139,8 +156,9 @@ function Home() {
                             )
                         })}
                     </div>
-                </section>
-            </div>
+                </div>
+
+            </section>
         </>
     )
 }
