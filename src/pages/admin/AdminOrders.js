@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import Pagination from "../../components/Pagination";
+import AdminPagination from "../../components/AdminPagination";
 import OrderModal from "../../components/OrderModal";
 import DeleteModal from "../../components/DeleteModal";
 import { Modal } from "bootstrap";
@@ -113,7 +113,7 @@ function AdminOrders() {
 
                 </tbody>
             </table>
-            <Pagination pagination={pagination} changePage={getOrders} />
+            <AdminPagination pagination={pagination} changePage={getOrders} />
 
         </div>
     )

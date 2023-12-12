@@ -3,7 +3,7 @@ import axios from "axios";
 import ProductModal from "../../components/ProductModal";
 import DeleteModal from "../../components/DeleteModal";
 import { Modal } from "bootstrap"
-import Pagination from "../../components/Pagination";
+import AdminPagination from "../../components/AdminPagination";
 import Loading from "../../components/Loading";
 
 function AdminProducts() {
@@ -126,7 +126,7 @@ function AdminProducts() {
                     
                 </tbody>
             </table>
-            <Pagination pagination={pagination} changePage={getProducts}/>
+            <AdminPagination pagination={pagination} changePage={getProducts}/>
             
         </div>
     )
