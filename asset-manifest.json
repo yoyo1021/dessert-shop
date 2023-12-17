@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/dessert-shop/static/css/main.95333efa.css",
-    "main.js": "/dessert-shop/static/js/main.9fb6c821.js",
+    "main.css": "/dessert-shop/static/css/main.25eb0c8a.css",
+    "main.js": "/dessert-shop/static/js/main.be84189b.js",
     "static/js/787.f2911acd.chunk.js": "/dessert-shop/static/js/787.f2911acd.chunk.js",
     "static/media/bootstrap-icons.woff?": "/dessert-shop/static/media/bootstrap-icons.66b7720f4a230f1b0341.woff",
     "static/media/bootstrap-icons.woff2?": "/dessert-shop/static/media/bootstrap-icons.64ed46b247405068ca60.woff2",
     "index.html": "/dessert-shop/index.html",
-    "main.95333efa.css.map": "/dessert-shop/static/css/main.95333efa.css.map",
-    "main.9fb6c821.js.map": "/dessert-shop/static/js/main.9fb6c821.js.map",
+    "main.25eb0c8a.css.map": "/dessert-shop/static/css/main.25eb0c8a.css.map",
+    "main.be84189b.js.map": "/dessert-shop/static/js/main.be84189b.js.map",
     "787.f2911acd.chunk.js.map": "/dessert-shop/static/js/787.f2911acd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.95333efa.css",
-    "static/js/main.9fb6c821.js"
+    "static/css/main.25eb0c8a.css",
+    "static/js/main.be84189b.js"
   ]
 }
