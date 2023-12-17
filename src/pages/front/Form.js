@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link, useOutletContext, useNavigate } from 'react-router-dom';
 import Loading from "../../components/Loading";
 import { useState } from 'react';
+import Stepper from '../../components/Stepper';
 
 function Form() {
     const { register,
@@ -39,8 +40,9 @@ function Form() {
 
 
     return (<>
-        <div className="pt-5 container full-height">
+        <div className="container full-height">
             <Loading isLoading={isLoading} />
+            <Stepper activeStep={1} steps={[{ title: "確認商品" }, { title: "填寫資料" }, { title: "訂單完成" }]} />
             <div className="row flex-row-reverse justify-content-center pb-5 ">
                 <div className="col-md-4">
                     <div className="border p-4 mb-2">

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Loading from "../../components/Loading";
 import Swal from 'sweetalert2';
+import Stepper from "../../components/Stepper";
 
 function OrderSuccess() {
 
@@ -48,6 +49,7 @@ function OrderSuccess() {
     return (<>
         <div className="container full-height">
             <Loading isLoading={isLoading} />
+            <Stepper activeStep={2} steps={[{ title: "確認商品" }, { title: "填寫資料" }, { title: "訂單完成" }]} />
             <div className="mt-5 mb-7">
                 <div className="row">
                     <div className="col-md-6">

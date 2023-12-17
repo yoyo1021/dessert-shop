@@ -2,14 +2,16 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import Loading from "../../components/Loading";
+import Stepper from "../../components/Stepper";
 import Swal from 'sweetalert2';
+
 
 function Cart() {
 
     const { cartData, getCart } = useOutletContext();
     const [isLoadingQty, setIsLoadingQty] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [couponCode,setCouponCode] = useState('')
+    const [couponCode, setCouponCode] = useState('')
 
     const removeCartItem = async (id) => {
         try {
@@ -42,15 +44,15 @@ function Cart() {
     }
 
 
-    const useCoupon = async()=>{
+    const useCoupon = async () => {
         try {
             const data = {
-                data:{
-                    code:couponCode,
+                data: {
+                    code: couponCode,
                 }
             }
             setIsLoading(true);
-            const res = await axios.post(`/v2/api/${process.env.REACT_APP_API_PATH}/coupon`,data);
+            const res = await axios.post(`/v2/api/${process.env.REACT_APP_API_PATH}/coupon`, data);
             getCart();
             Swal.fire({
                 title: '使用成功!',
@@ -59,7 +61,7 @@ function Cart() {
                 confirmButtonText: 'ok'
             })
             setIsLoading(false);
-            
+
             //console.log('coupon',res)
         } catch (error) {
             console.log(error.response.data.message);
@@ -71,7 +73,7 @@ function Cart() {
             })
             setIsLoading(false);
         }
-        
+
     }
 
 
@@ -93,7 +95,8 @@ function Cart() {
                 </>
             ) : (
                 <>
-                    <div className=" bg-white py-5" style={{ minHeight: 'calc(100vh - 56px - 76px)' }}>
+                    <Stepper activeStep={0} steps={[{ title: "確認商品" }, { title: "填寫資料" }, { title: "訂單完成" }]} />
+                    <div className=" bg-white pb-5" style={{ minHeight: 'calc(100vh - 56px - 76px)' }}>
                         <div className="d-flex justify-content-between">
                             <h2 className="mt-2">購物車清單</h2>
                         </div>
@@ -169,7 +172,7 @@ function Cart() {
                                 <div className="card mb-3" key={i.id}>
                                     <div className="card-body position-relative">
                                         <div className="d-flex align-items-end">
-                                            <img src={i.product.imageUrl} className="object-cover rounded " alt={i.product.title} style={{ width:'150px',height:'100px' }} />
+                                            <img src={i.product.imageUrl} className="object-cover rounded " alt={i.product.title} style={{ width: '150px', height: '100px' }} />
                                             <div className="p-3 w-100">
                                                 <div className="d-flex justify-content-between mb-3">
                                                     <h5 className="d-inline-block mb-0 fw-bold">{i.product.title}</h5>
@@ -196,8 +199,8 @@ function Cart() {
                             )
                         })}
                         <div className="mt-3 d-flex justify-content-end">
-                            <input type="text" className="form-control w-25 me-3" onChange={(e)=>setCouponCode(e.target.value)}/>
-                            <button type="button" className={`btn btn-primary ${couponCode?'':'disabled'}`} onClick={useCoupon}>優惠碼</button>
+                            <input type="text" className="form-control w-25 me-3" onChange={(e) => setCouponCode(e.target.value)} />
+                            <button type="button" className={`btn btn-primary ${couponCode ? '' : 'disabled'}`} onClick={useCoupon}>優惠碼</button>
                         </div>
                         <hr />
                         <table className="table mt-4 text-muted">
