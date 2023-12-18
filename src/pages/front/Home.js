@@ -45,7 +45,7 @@ function Home() {
     }
 
     const copyCoupon = ()=>{
-        console.log(copyRef.current.innerText)
+        //console.log(copyRef.current.innerText)
         setIsCopy(true);
         setTimeout(()=>{
             setIsCopy(false);
