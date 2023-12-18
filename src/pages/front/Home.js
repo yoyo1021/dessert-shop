@@ -64,11 +64,11 @@ function Home() {
             <section className="py-5">
                 <div className="container">
                     <div className="row align-items-center">
-                        <div className="col-md-6 mb-3">
+                        <div className="col-md-7 mb-3">
                             <h4 className="text-center fw-bold border-bottom mb-4 pb-3">歡慶開幕</h4>
-                            <h4 className="text-center text-md-start">開幕優惠，即日起輸入優惠碼 【DESERT8】 享全館商品打8折</h4>
+                            <h4 className="text-center ">開幕優惠，即日起輸入優惠碼 【DESERT8】 享全館商品打8折</h4>
                         </div>
-                        <div className="col-md-6 ">
+                        <div className="col-md-5 ps-xl-7">
                             <div className="row align-items-center ">
                                 <div className="col-md-6 mb-3">
                                     <div className="border p-3 text-center ">優惠碼 【<span ref={copyRef}>DESERT8</span>】</div>
@@ -93,7 +93,7 @@ function Home() {
                                 <div className="col-md-6 col-lg-3" key={i.id}>
                                     <Link to={`/product/${i.id}`} style={{ textDecoration: 'none' }} className="card  mb-4 border-0">
                                         <div className="img-wrapper position-relative">
-                                            <img src={i.imageUrl} className="card-img-top  object-cover " height='250px' alt="..." />
+                                            <img src={i.imageUrl} className="object-cover w-100" height='250px' alt="..." />
                                             <div className="detail-icon fs-5 fw-bold text-primary position-absolute top-50 start-50 translate-middle">
                                                 <i className="bi bi-search"></i> 查看更多
                                             </div>
@@ -131,7 +131,7 @@ function Home() {
                                 <div className="col-md-6 col-lg-3" key={i.id}>
                                     <Link to={`/product/${i.id}`} style={{ textDecoration: 'none' }} className="card  mb-4 border-0">
                                         <div className="img-wrapper position-relative">
-                                            <img src={i.imageUrl} className="card-img-top  object-cover " height='250px' alt="..." />
+                                            <img src={i.imageUrl} className="object-cover w-100" height='250px' alt="..." />
                                             <div className="detail-icon fs-5 fw-bold text-primary position-absolute top-50 start-50 translate-middle">
                                                 <i className="bi bi-search"></i> 查看更多
                                             </div>
